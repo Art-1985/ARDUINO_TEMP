@@ -1,0 +1,21 @@
+Emulation Board Manager : Arduino AVR Boards
+    File > Setting >  Extra > Added URL > http://arduino.esp8266.com/stable/package_esp8266com_index.json
+Emulation Board : NodeMCU 1.0(ESP-12E Module)
+Upload Speed    : 115200 bps
+CPU Frequency   : 80MHz
+Flash Size      : 4M (3M SPIFFS)
+Programer       : AVRISP mkll
+Serial Port     : Sel. Showed Port
+
+Demo Process:
+    File > Demo > TABLE(ESP8266WIFI) > WiFiScan
+
+
+Lib. Manager:
+
+
+
+
+參考資料
+NodeMCU     :https://www.nodemcu.com
+NodeMCU Doc.:https://nodemcu.readthedocs.io/en/master/
