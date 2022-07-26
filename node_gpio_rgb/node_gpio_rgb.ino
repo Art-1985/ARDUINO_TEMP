@@ -2,18 +2,22 @@
 
 
 void setup() {
-  // put your setup code here, to run once:
-  //pinMode(GLED,OUTPUT);
-  //pinMode(RLED,OUTPUT);
-  //pinMode(BLED,OUTPUT);
-  //digitalWrite(GLED,LOW);
-  //digitalWrite(RLED,LOW);
-  //digitalWrite(BLED,LOW);
   init_rgb_blink();
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  run_rgb_blink();
+}
+
+void init_rgb_blink(void){
+  pinMode(GLED,OUTPUT);
+  pinMode(RLED,OUTPUT);
+  pinMode(BLED,OUTPUT);
+  digitalWrite(GLED,LOW);
+  digitalWrite(RLED,LOW);
+  digitalWrite(BLED,LOW);  
+}
+void run_rgb_blink(void){
   digitalWrite(GLED,HIGH);
   delay(1000);
   digitalWrite(GLED,LOW);
@@ -29,19 +33,17 @@ void loop() {
 }
 
 
-/*
-node_gpio_input
-void setup() {
+void init_key_light(void){
   pinMode(GLED,OUTPUT);
   pinMode(KEYIN,INPUT);
   digitalWrite(GLED,LOW);
 }
-
-void loop() {
+void run_key_light(void){
   if(digitalRead(KEYIN)==0)
     digitalWrite(GLED,HIGH);
   else
     digitalWrite(GLED,LOW);
   delay(100);
 }
-*/
+
+
