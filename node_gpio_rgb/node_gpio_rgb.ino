@@ -1,14 +1,15 @@
-#define GLED   13
-#define RLED   12
-#define BLED   14  
+#include  "node_mcu_gpio.h"
+
+
 void setup() {
   // put your setup code here, to run once:
-  pinMode(GLED,OUTPUT);
-  pinMode(RLED,OUTPUT);
-  pinMode(BLED,OUTPUT);
-  digitalWrite(GLED,LOW);
-  digitalWrite(RLED,LOW);
-  digitalWrite(BLED,LOW);  
+  //pinMode(GLED,OUTPUT);
+  //pinMode(RLED,OUTPUT);
+  //pinMode(BLED,OUTPUT);
+  //digitalWrite(GLED,LOW);
+  //digitalWrite(RLED,LOW);
+  //digitalWrite(BLED,LOW);
+  init_rgb_blink();
 }
 
 void loop() {
@@ -28,11 +29,8 @@ void loop() {
 }
 
 
-
 /*
 node_gpio_input
-#define GLED   13
-#define KEYIN  0 
 void setup() {
   pinMode(GLED,OUTPUT);
   pinMode(KEYIN,INPUT);
