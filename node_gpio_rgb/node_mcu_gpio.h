@@ -7,9 +7,10 @@
 
 #define KEYIN  0 
 
+void init_wifi_link(void);
+void init_dht11_sense(void);
+void init_rgb_blink(void);
 
-//void init_rgb_blink(void);
 //void run_rgb_blink(void);
-
 
 #endif

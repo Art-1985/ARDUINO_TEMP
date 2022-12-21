@@ -45,13 +45,10 @@ void loop() {
     temperature = dht.getTemperature();
 
     // 確認取回的溫溼度數據可用
-    if( isnan( humidity ) || isnan( temperature ) )
-    {
+    if( isnan( humidity ) || isnan( temperature ) ){
         Serial.println( "Failed to read form DHT11" );
-    return;
-    }
-    else
-    {
+        return;}
+    else{
         // DHT11 溫度與濕度傳送      
         Serial.print( "Humidity: " );
         Serial.print( humidity );
