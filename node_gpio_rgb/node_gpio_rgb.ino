@@ -2,7 +2,7 @@
 #include  <ESP8266WiFi.h>
 #include  "DHTesp.h"
 
-#define SSID    "Art. XR"
+#define SSID    "Art. Pro"
 #define PASS    "abcdef12"
 #define HOST    "api.thingspeak.com" // ThingSpeak IP Address: 184.106.153.149
 #define PORT    80
