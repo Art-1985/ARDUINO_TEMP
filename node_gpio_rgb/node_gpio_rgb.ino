@@ -2,8 +2,10 @@
 #include  <ESP8266WiFi.h>
 #include  "DHTesp.h"
 
-#define SSID    "Art. Pro"
-#define PASS    "abcdef12"
+// #define SSID    "Art. Pro"
+// #define PASS    "abcdef12"
+#define SSID    "Art.K4"
+#define PASS    "0933547825"
 #define HOST    "api.thingspeak.com" // ThingSpeak IP Address: 184.106.153.149
 #define PORT    80
 String GET = "GET /update?key=A7FWFGRLU2P1MOK9";
