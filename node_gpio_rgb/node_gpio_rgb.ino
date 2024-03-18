@@ -4,8 +4,8 @@
 #include  "DHTesp.h"
 #include  <TridentTD_LineNotify.h>
 
-// #define SSID    "Art. Pro"
-// #define PASS    "abcdef12"
+//#define SSID    "Art. Pro"
+//#define PASS    "abcdef12"
 #define SSID    "Art.K4"
 #define PASS    "0933547825"
 #define HOST    "api.thingspeak.com" // ThingSpeak IP Address: 184.106.153.149
@@ -36,7 +36,9 @@ void setup() {
 
 void loop() {
   humidity = dht11_sensor.getHumidity();
+  delay(100);
   temperature = dht11_sensor.getTemperature();
+  delay(100);
 
 
   // 確認取回的溫溼度數據可用(檢視是否為NULL)
@@ -53,7 +55,7 @@ void loop() {
     updateLine();
   }
 
-  delay(5000);  // Wait a bit before scanning again
+  delay(60000*10);  // Wait a bit before scanning again
   run_rgb_blink();
 
   sensorValue = analogRead(analogInPin);
@@ -191,7 +193,8 @@ void updateDHT11()
 //-- Upload to LineBot ----------------------------------------------------
 void updateLine()
 {
-  String tempe = "溫度:" + String((int)(temperature - 32) * 5 / 9) + " C";
+  //String tempe = "溫度:" + String((int)(temperature - 32) * 5 / 9) + "'C";
+  String tempe = "溫度:" + String((int)temperature) + "℃";
   String humid = "濕度:" + String((int)humidity) + "%";
   Serial.println(LINE.getVersion()); // Line Version
   LINE.setToken(LINE_TOKEN);
