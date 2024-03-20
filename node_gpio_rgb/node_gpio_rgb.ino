@@ -36,8 +36,10 @@ void setup() {
 
 void loop() {
   humidity = dht11_sensor.getHumidity();
+  //humidity = dht22_sensor.getHumidity();
   delay(100);
   temperature = dht11_sensor.getTemperature();
+  //temperature = dht22_sensor.getTemperature();
   delay(100);
 
 
@@ -52,10 +54,10 @@ void loop() {
     Serial.print(", Temperature: ");
     Serial.println(temperature);
     updateDHT11(); // Upload to Thingspeak (DHT11 Temp. & Hum.)
-    updateLine();
+    //updateLine();
   }
 
-  delay(60000*10);  // Wait a bit before scanning again
+  delay(60000);  // Wait a bit before scanning again
   run_rgb_blink();
 
   sensorValue = analogRead(analogInPin);
@@ -175,8 +177,7 @@ void updateDHT11()
   }
   else
   {
-    // 準備上傳到 ThingSpeak IoT Server 的資料
-    // 已經預先設定好 ThingSpeak IoT Channel 的欄位
+    // 準備上傳到 ThingSpeak IoT Server 的資料(預先設定 ThingSpeak Channel 欄位)
     // field1：溫度；field2：濕度
     String getStr = GET + "&field1=" + String((int)temperature) +
       "&field2=" + String((int)humidity) +
