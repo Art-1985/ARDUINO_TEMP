@@ -1,7 +1,7 @@
 #include  "node_mcu_gpio.h"
+#include  "node_mcu_dht.h"
 #include  <ESP8266WiFi.h>
 //#include  <WiFiClient.h>
-#include  "DHTesp.h"
 #include  <TridentTD_LineNotify.h>
 
 #define SSID    "Art. Pro"
@@ -14,8 +14,6 @@
 #define LINE_TOKEN "or8MjvO4AsC4iZth7EA1oeafQV0BDCtbC4MIhNxuxUl"
 
 String GET = "GET /update?key=A7FWFGRLU2P1MOK9";
-DHTesp dht11_sensor;
-
 
 float temperature, humidity;
 const int analogInPin = A0;
@@ -36,13 +34,8 @@ void setup() {
 
 void loop()
 {
-  humidity = dht11_sensor.getHumidity();
-  //humidity = dht22_sensor.getHumidity();
-  delay(100);
-  temperature = dht11_sensor.getTemperature();
-  //temperature = dht22_sensor.getTemperature();
-  delay(100);
-
+  humidity = get_dht_humi();
+  temperature = get_dht_temp();
 
   // 確認取回的溫溼度數據可用(檢視是否為NULL)
   if (isnan(humidity) || isnan(temperature)) {
@@ -144,12 +137,6 @@ void init_wifi_link(void) {
   Serial.println("");
 }
 
-//-- init_dht11_sense ----------------------------------------------------
-void init_dht11_sense(void) {
-  dht11_sensor.setup(5, DHTesp::DHT11); // Connect DHT11 to GPIO 5
-  Serial.println("DHT11 Ready!");
-  delay(2000);
-}
 
 //-- Upload to Thingspeak ----------------------------------------------------
 void updateDHT11()
