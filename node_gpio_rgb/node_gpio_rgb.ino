@@ -4,10 +4,10 @@
 #include  "DHTesp.h"
 #include  <TridentTD_LineNotify.h>
 
-//#define SSID    "Art. Pro"
-//#define PASS    "abcdef12"
-#define SSID    "Art.K4"
-#define PASS    "0933547825"
+#define SSID    "Art. Pro"
+#define PASS    "abcdef12"
+// #define SSID    "Art.K4"
+// #define PASS    "0933547825"
 #define HOST    "api.thingspeak.com" // ThingSpeak IP Address: 184.106.153.149
 #define PORT    80
 
@@ -34,7 +34,8 @@ void setup() {
   delay(100);
 }
 
-void loop() {
+void loop()
+{
   humidity = dht11_sensor.getHumidity();
   //humidity = dht22_sensor.getHumidity();
   delay(100);
@@ -70,21 +71,6 @@ void loop() {
   Serial.println(outputValue);
 }
 
-//-- Blink LED Declarations and Function -------------------------------------
-void run_rgb_blink(void) {
-  digitalWrite(GLED, HIGH);
-  delay(1000);
-  digitalWrite(GLED, LOW);
-  delay(1000);
-  digitalWrite(RLED, HIGH);
-  delay(1000);
-  digitalWrite(RLED, LOW);
-  delay(1000);
-  digitalWrite(BLED, HIGH);
-  delay(1000);
-  digitalWrite(BLED, LOW);
-  delay(1000);
-}
 
 //-- Light LED By Key Declarations and Function ------------------------------
 void init_key_light(void) {

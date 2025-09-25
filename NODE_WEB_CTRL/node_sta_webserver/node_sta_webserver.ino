@@ -1,9 +1,4 @@
-/*
- * NodeMCU/ESP8266 act as AP (Access Point) and simplest Web Server
- * to control GPIO (on-board LED)
- * Connect to AP "arduino-er", password = "password"
- * Open browser, visit 192.168.4.1
- */
+
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h> 
 #include <ESP8266WebServer.h>
@@ -14,9 +9,9 @@ const char* password = "abcdef1234";
 int stateLED = LOW;
 
 //Static IP address configuration
-IPAddress ip(192, 168, 1, 6); //ESP static ip
-IPAddress gateway(192, 168, 1, 1);   //IP Address of your WiFi Router (Gateway)
-IPAddress subnet(255, 255, 255, 0);  //Subnet mask
+IPAddress ip(192, 168, 1, 6);       //ESP static ip
+IPAddress gateway(192, 168, 1, 1);  //IP Address of your WiFi Router (Gateway)
+IPAddress subnet(255, 255, 255, 0); //Subnet mask
 IPAddress dns(8, 8, 8, 8);  //DNS
 ESP8266WebServer server(80);
 
