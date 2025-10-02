@@ -16,7 +16,6 @@ float get_dht_humi(void)
 {
     float  temp_var;
     temp_var = dht11_sensor.getHumidity();
-    //humidity = dht22_sensor.getHumidity();
     delay(100);
     return    temp_var;
 }
@@ -25,7 +24,6 @@ float get_dht_temp(void)
 {
     float  temp_var;
     temp_var = dht11_sensor.getTemperature();
-    //temperature = dht22_sensor.getTemperature();
     delay(100);
     return    temp_var;
 }

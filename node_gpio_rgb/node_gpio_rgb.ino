@@ -2,7 +2,7 @@
 #include  "node_mcu_dht.h"
 #include  <ESP8266WiFi.h>
 //#include  <WiFiClient.h>
-#include  <TridentTD_LineNotify.h>
+//#include  <TridentTD_LineNotify.h>
 
 #define SSID    "Art. Pro"
 #define PASS    "abcdef12"
@@ -13,6 +13,8 @@
 
 #define LINE_TOKEN "or8MjvO4AsC4iZth7EA1oeafQV0BDCtbC4MIhNxuxUl"
 
+// 使用 GET 傳送資料的格式
+// GET /update?key=[THINGSPEAK_KEY]&field1=[data 1]&filed2=[data 2]...;
 String GET = "GET /update?key=A7FWFGRLU2P1MOK9";
 
 float temperature, humidity;
@@ -145,13 +147,13 @@ void updateDHT11()
   WiFiClient client;
   if (!client.connect(HOST, PORT))
   {
-    Serial.println("connection failed");
+    Serial.println("Connection Failed");
     return;
   }
   else
   {
     // 準備上傳到 ThingSpeak IoT Server 的資料(預先設定 ThingSpeak Channel 欄位)
-    // field1：溫度；field2：濕度
+    // Field1：溫度；Field2：濕度
     String getStr = GET + "&field1=" + String((int)temperature) +
       "&field2=" + String((int)humidity) +
       " HTTP/1.1\r\n";;
@@ -168,9 +170,9 @@ void updateDHT11()
 void updateLine()
 {
   //String tempe = "溫度:" + String((int)(temperature - 32) * 5 / 9) + "'C";
-  String tempe = "溫度:" + String((int)temperature) + "℃";
-  String humid = "濕度:" + String((int)humidity) + "%";
-  Serial.println(LINE.getVersion()); // Line Version
-  LINE.setToken(LINE_TOKEN);
-  LINE.notify("\n" + tempe + ";" + humid);
+  //String tempe = "溫度:" + String((int)temperature) + "℃";
+  //String humid = "濕度:" + String((int)humidity) + "%";
+  //Serial.println(LINE.getVersion()); // Line Version
+  //LINE.setToken(LINE_TOKEN);
+  //LINE.notify("\n" + tempe + ";" + humid);
 }
