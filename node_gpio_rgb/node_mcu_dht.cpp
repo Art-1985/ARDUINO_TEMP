@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "node_mcu_dht.h"
-#include  "DHTesp.h"
+#include "DHTesp.h"
 
 DHTesp dht11_sensor;
 

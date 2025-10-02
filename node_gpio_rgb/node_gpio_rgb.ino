@@ -1,7 +1,7 @@
 #include  "node_mcu_gpio.h"
 #include  "node_mcu_dht.h"
 #include  <ESP8266WiFi.h>
-//#include  <WiFiClient.h>
+#include  <WiFiClient.h>
 //#include  <TridentTD_LineNotify.h>
 
 #define SSID    "Art. Pro"
